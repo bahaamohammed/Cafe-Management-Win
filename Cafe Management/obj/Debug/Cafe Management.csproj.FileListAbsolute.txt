@@ -1,0 +1,39 @@
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\Cafe Management.exe.config
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\Cafe Management.exe
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\Cafe Management.pdb
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\Bunifu.Licensing.dll
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\Bunifu.UI.WinForms.dll
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\RestSharp.dll
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\System.Buffers.dll
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\System.CodeDom.dll
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\System.Memory.dll
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\System.Text.Json.dll
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\System.ValueTuple.dll
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\Bunifu.UI.WinForms.xml
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\RestSharp.xml
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\System.Buffers.xml
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\System.CodeDom.xml
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\System.Memory.xml
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\System.Text.Json.xml
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\bin\Debug\System.ValueTuple.xml
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\obj\Debug\Cafe Management.csproj.AssemblyReference.cache
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\obj\Debug\Cafe Management.csproj.SuggestedBindingRedirects.cache
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\obj\Debug\Cafe_Management.Form1.resources
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\obj\Debug\Cafe_Management.Properties.Resources.resources
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\obj\Debug\Cafe Management.csproj.GenerateResource.cache
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\obj\Debug\Cafe Management.csproj.CoreCompileInputs.cache
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\obj\Debug\Cafe Management.csproj.CopyComplete
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\obj\Debug\Cafe Management.exe
+C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\obj\Debug\Cafe Management.pdb
