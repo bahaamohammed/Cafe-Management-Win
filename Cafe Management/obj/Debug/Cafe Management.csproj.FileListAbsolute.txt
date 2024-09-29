@@ -37,3 +37,43 @@ C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\obj\Debug\Cafe M
 C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\obj\Debug\Cafe Management.csproj.CopyComplete
 C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\obj\Debug\Cafe Management.exe
 C:\Users\Bahaa Dev\source\repos\Cafe Management\Cafe Management\obj\Debug\Cafe Management.pdb
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\Cafe Management.exe.config
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\Cafe Management.exe
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\Cafe Management.pdb
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\Bunifu.Licensing.dll
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\Bunifu.UI.WinForms.dll
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\Newtonsoft.Json.dll
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\RestSharp.dll
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\System.Buffers.dll
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\System.CodeDom.dll
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\System.Memory.dll
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\System.Numerics.Vectors.dll
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\System.Text.Encodings.Web.dll
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\System.Text.Json.dll
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\System.Threading.Tasks.Extensions.dll
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\System.ValueTuple.dll
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\Bunifu.UI.WinForms.xml
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\Newtonsoft.Json.xml
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\RestSharp.xml
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\System.Buffers.xml
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\System.CodeDom.xml
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\System.Memory.xml
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\System.Numerics.Vectors.xml
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\System.Text.Encodings.Web.xml
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\System.Text.Json.xml
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\System.Threading.Tasks.Extensions.xml
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\System.ValueTuple.xml
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\obj\Debug\Cafe Management.csproj.AssemblyReference.cache
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\obj\Debug\Cafe Management.csproj.SuggestedBindingRedirects.cache
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\obj\Debug\Cafe_Management.frmItem.resources
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\obj\Debug\Cafe_Management.frmLogin.resources
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\obj\Debug\Cafe_Management.Properties.Resources.resources
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\obj\Debug\Cafe Management.csproj.GenerateResource.cache
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\obj\Debug\Cafe Management.csproj.CoreCompileInputs.cache
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\obj\Debug\Cafe Management.csproj.CopyComplete
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\obj\Debug\Cafe Management.exe
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\obj\Debug\Cafe Management.pdb
