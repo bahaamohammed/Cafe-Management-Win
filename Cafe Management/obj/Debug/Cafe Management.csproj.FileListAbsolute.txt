@@ -69,7 +69,6 @@ E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\System.Thread
 E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\bin\Debug\System.ValueTuple.xml
 E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\obj\Debug\Cafe Management.csproj.AssemblyReference.cache
 E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\obj\Debug\Cafe Management.csproj.SuggestedBindingRedirects.cache
-E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\obj\Debug\Cafe_Management.frmItem.resources
 E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\obj\Debug\Cafe_Management.frmLogin.resources
 E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\obj\Debug\Cafe_Management.Properties.Resources.resources
 E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\obj\Debug\Cafe Management.csproj.GenerateResource.cache
@@ -77,3 +76,5 @@ E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\obj\Debug\Cafe Manageme
 E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\obj\Debug\Cafe Management.csproj.CopyComplete
 E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\obj\Debug\Cafe Management.exe
 E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\obj\Debug\Cafe Management.pdb
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\obj\Debug\Cafe_Management.frmUserOrder.resources
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\obj\Debug\Cafe_Management.frmItems.resources

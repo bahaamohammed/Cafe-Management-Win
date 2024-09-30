@@ -46,7 +46,7 @@
             this.lblTitle = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuTextBox1 = new Bunifu.UI.WinForms.BunifuTextBox();
             this.btnLogin = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.lnkGuest = new System.Windows.Forms.LinkLabel();
             this.bunifuPictureBox1 = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.bunifuFormDrag1 = new Bunifu.UI.WinForms.BunifuFormDrag();
             this.panel1.SuspendLayout();
@@ -74,7 +74,7 @@
             this.btnClose.CloseBoxOptions.Enabled = true;
             this.btnClose.CloseBoxOptions.EnableDefaultAction = true;
             this.btnClose.CloseBoxOptions.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(17)))), ((int)(((byte)(35)))));
-            this.btnClose.CloseBoxOptions.Icon = ((System.Drawing.Image)(resources.GetObject("bunifuFormControlBox1.CloseBoxOptions.Icon")));
+            this.btnClose.CloseBoxOptions.Icon = ((System.Drawing.Image)(resources.GetObject("btnClose.CloseBoxOptions.Icon")));
             this.btnClose.CloseBoxOptions.IconAlt = null;
             this.btnClose.CloseBoxOptions.IconColor = System.Drawing.Color.White;
             this.btnClose.CloseBoxOptions.IconHoverColor = System.Drawing.Color.White;
@@ -89,7 +89,7 @@
             this.btnClose.HelpBoxOptions.Enabled = true;
             this.btnClose.HelpBoxOptions.EnableDefaultAction = true;
             this.btnClose.HelpBoxOptions.HoverColor = System.Drawing.Color.LightGray;
-            this.btnClose.HelpBoxOptions.Icon = ((System.Drawing.Image)(resources.GetObject("bunifuFormControlBox1.HelpBoxOptions.Icon")));
+            this.btnClose.HelpBoxOptions.Icon = ((System.Drawing.Image)(resources.GetObject("btnClose.HelpBoxOptions.Icon")));
             this.btnClose.HelpBoxOptions.IconAlt = null;
             this.btnClose.HelpBoxOptions.IconColor = System.Drawing.Color.Black;
             this.btnClose.HelpBoxOptions.IconHoverColor = System.Drawing.Color.Black;
@@ -103,8 +103,8 @@
             this.btnClose.MaximizeBoxOptions.Enabled = true;
             this.btnClose.MaximizeBoxOptions.EnableDefaultAction = true;
             this.btnClose.MaximizeBoxOptions.HoverColor = System.Drawing.Color.LightGray;
-            this.btnClose.MaximizeBoxOptions.Icon = ((System.Drawing.Image)(resources.GetObject("bunifuFormControlBox1.MaximizeBoxOptions.Icon")));
-            this.btnClose.MaximizeBoxOptions.IconAlt = ((System.Drawing.Image)(resources.GetObject("bunifuFormControlBox1.MaximizeBoxOptions.IconAlt")));
+            this.btnClose.MaximizeBoxOptions.Icon = ((System.Drawing.Image)(resources.GetObject("btnClose.MaximizeBoxOptions.Icon")));
+            this.btnClose.MaximizeBoxOptions.IconAlt = ((System.Drawing.Image)(resources.GetObject("btnClose.MaximizeBoxOptions.IconAlt")));
             this.btnClose.MaximizeBoxOptions.IconColor = System.Drawing.Color.Black;
             this.btnClose.MaximizeBoxOptions.IconHoverColor = System.Drawing.Color.Black;
             this.btnClose.MaximizeBoxOptions.IconPressedColor = System.Drawing.Color.Black;
@@ -116,7 +116,7 @@
             this.btnClose.MinimizeBoxOptions.Enabled = true;
             this.btnClose.MinimizeBoxOptions.EnableDefaultAction = true;
             this.btnClose.MinimizeBoxOptions.HoverColor = System.Drawing.Color.LightGray;
-            this.btnClose.MinimizeBoxOptions.Icon = ((System.Drawing.Image)(resources.GetObject("bunifuFormControlBox1.MinimizeBoxOptions.Icon")));
+            this.btnClose.MinimizeBoxOptions.Icon = ((System.Drawing.Image)(resources.GetObject("btnClose.MinimizeBoxOptions.Icon")));
             this.btnClose.MinimizeBoxOptions.IconAlt = null;
             this.btnClose.MinimizeBoxOptions.IconColor = System.Drawing.Color.Black;
             this.btnClose.MinimizeBoxOptions.IconHoverColor = System.Drawing.Color.Black;
@@ -348,7 +348,7 @@
             this.btnLogin.ButtonTextMarginLeft = 0;
             this.btnLogin.ColorContrastOnClick = 45;
             this.btnLogin.ColorContrastOnHover = 45;
-            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             borderEdges1.BottomLeft = true;
             borderEdges1.BottomRight = true;
             borderEdges1.TopLeft = true;
@@ -359,7 +359,7 @@
             this.btnLogin.DisabledFillColor = System.Drawing.Color.Empty;
             this.btnLogin.DisabledForecolor = System.Drawing.Color.Empty;
             this.btnLogin.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.IconLeft = null;
             this.btnLogin.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -389,12 +389,12 @@
             this.btnLogin.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.btnLogin.OnDisabledState.IconLeftImage = null;
             this.btnLogin.OnDisabledState.IconRightImage = null;
-            this.btnLogin.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
+            this.btnLogin.onHoverState.BorderColor = System.Drawing.Color.DarkSlateBlue;
             this.btnLogin.onHoverState.BorderRadius = 1;
             this.btnLogin.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.btnLogin.onHoverState.BorderThickness = 1;
-            this.btnLogin.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
-            this.btnLogin.onHoverState.ForeColor = System.Drawing.Color.White;
+            this.btnLogin.onHoverState.FillColor = System.Drawing.Color.White;
+            this.btnLogin.onHoverState.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.btnLogin.onHoverState.IconLeftImage = null;
             this.btnLogin.onHoverState.IconRightImage = null;
             this.btnLogin.OnIdleState.BorderColor = System.Drawing.Color.DarkSlateBlue;
@@ -420,17 +420,20 @@
             this.btnLogin.TextMarginLeft = 0;
             this.btnLogin.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnLogin.UseDefaultRadiusAndThickness = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // linkLabel1
+            // lnkGuest
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(97, 294);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(42, 16);
-            this.linkLabel1.TabIndex = 2;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Guest";
+            this.lnkGuest.AutoSize = true;
+            this.lnkGuest.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lnkGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkGuest.Location = new System.Drawing.Point(97, 294);
+            this.lnkGuest.Name = "lnkGuest";
+            this.lnkGuest.Size = new System.Drawing.Size(42, 16);
+            this.lnkGuest.TabIndex = 2;
+            this.lnkGuest.TabStop = true;
+            this.lnkGuest.Text = "Guest";
+            this.lnkGuest.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkGuest_LinkClicked);
             // 
             // bunifuPictureBox1
             // 
@@ -479,7 +482,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(613, 323);
             this.Controls.Add(this.bunifuPictureBox1);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.lnkGuest);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.bunifuTextBox1);
             this.Controls.Add(this.lblTitle);
@@ -488,7 +491,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "frmLogin";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).EndInit();
@@ -504,7 +507,7 @@
         private Bunifu.UI.WinForms.BunifuLabel lblTitle;
         private Bunifu.UI.WinForms.BunifuTextBox bunifuTextBox1;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnLogin;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel lnkGuest;
         private Bunifu.UI.WinForms.BunifuPictureBox bunifuPictureBox1;
         private Bunifu.UI.WinForms.BunifuLabel lblDesc;
         private Bunifu.UI.WinForms.BunifuLabel lblDevName;
