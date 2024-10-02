@@ -13,7 +13,7 @@ namespace Cafe_Management
     public partial class frmUserOrder : Form
     {
         bool isGuest = false;
-        public frmUserOrder(bool isGuest)
+        public frmUserOrder(bool isGuest = false)
         {
             InitializeComponent();
             this.isGuest = isGuest;
@@ -23,13 +23,25 @@ namespace Cafe_Management
 
         private void lnkLogout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Close();
+            Application.Restart();
         }
 
         private void btnItems_Click(object sender, EventArgs e)
         {
             frmItems frmItems = new frmItems();
             frmItems.ShowDialog(); // Show the main form as a dialog
+
+            // Hide the login form and open the main form
+            this.Hide();
+
+            // After the main form is closed (on logout), show the login form again
+            this.Show();
+        }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            frmUsers frmUsers = new frmUsers();
+            frmUsers.ShowDialog(); // Show the main form as a dialog
 
             // Hide the login form and open the main form
             this.Hide();

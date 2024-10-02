@@ -31,7 +31,7 @@ namespace Cafe_Management
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            frmUserOrder frmUserOrder = new frmUserOrder(false);
+            frmUserOrder frmUserOrder = new frmUserOrder();
             frmUserOrder.ShowDialog(); // Show the main form as a dialog
 
             // Hide the login form and open the main form

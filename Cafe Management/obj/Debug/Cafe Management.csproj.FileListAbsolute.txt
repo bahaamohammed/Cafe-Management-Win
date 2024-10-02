@@ -78,3 +78,4 @@ E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\obj\Debug\Cafe Manageme
 E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\obj\Debug\Cafe Management.pdb
 E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\obj\Debug\Cafe_Management.frmUserOrder.resources
 E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\obj\Debug\Cafe_Management.frmItems.resources
+E:\Portfolio\Windows\Cafe-Management-Win\Cafe Management\obj\Debug\Cafe_Management.frmUsers.resources

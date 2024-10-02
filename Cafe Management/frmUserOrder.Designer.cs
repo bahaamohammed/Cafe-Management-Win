@@ -123,7 +123,7 @@
             this.bunifuTextBox1.IconRight = null;
             this.bunifuTextBox1.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.bunifuTextBox1.Lines = new string[0];
-            this.bunifuTextBox1.Location = new System.Drawing.Point(43, 200);
+            this.bunifuTextBox1.Location = new System.Drawing.Point(12, 200);
             this.bunifuTextBox1.MaxLength = 32767;
             this.bunifuTextBox1.MinimumSize = new System.Drawing.Size(1, 1);
             this.bunifuTextBox1.Modified = false;
@@ -159,7 +159,7 @@
             this.bunifuTextBox1.SelectionLength = 0;
             this.bunifuTextBox1.SelectionStart = 0;
             this.bunifuTextBox1.ShortcutsEnabled = true;
-            this.bunifuTextBox1.Size = new System.Drawing.Size(145, 39);
+            this.bunifuTextBox1.Size = new System.Drawing.Size(170, 39);
             this.bunifuTextBox1.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Material;
             this.bunifuTextBox1.TabIndex = 10;
             this.bunifuTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -387,7 +387,7 @@
             this.btnAddToCart.IdleIconLeftImage = null;
             this.btnAddToCart.IdleIconRightImage = null;
             this.btnAddToCart.IndicateFocus = false;
-            this.btnAddToCart.Location = new System.Drawing.Point(43, 261);
+            this.btnAddToCart.Location = new System.Drawing.Point(26, 260);
             this.btnAddToCart.Name = "btnAddToCart";
             this.btnAddToCart.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnAddToCart.OnDisabledState.BorderRadius = 1;
@@ -475,7 +475,7 @@
             this.txtSellerName.IconRight = null;
             this.txtSellerName.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txtSellerName.Lines = new string[0];
-            this.txtSellerName.Location = new System.Drawing.Point(43, 155);
+            this.txtSellerName.Location = new System.Drawing.Point(12, 155);
             this.txtSellerName.MaxLength = 32767;
             this.txtSellerName.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtSellerName.Modified = false;
@@ -511,7 +511,7 @@
             this.txtSellerName.SelectionLength = 0;
             this.txtSellerName.SelectionStart = 0;
             this.txtSellerName.ShortcutsEnabled = true;
-            this.txtSellerName.Size = new System.Drawing.Size(145, 39);
+            this.txtSellerName.Size = new System.Drawing.Size(170, 39);
             this.txtSellerName.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Material;
             this.txtSellerName.TabIndex = 5;
             this.txtSellerName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -551,7 +551,7 @@
             this.txtOrderNum.IconRight = null;
             this.txtOrderNum.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txtOrderNum.Lines = new string[0];
-            this.txtOrderNum.Location = new System.Drawing.Point(43, 110);
+            this.txtOrderNum.Location = new System.Drawing.Point(12, 110);
             this.txtOrderNum.MaxLength = 32767;
             this.txtOrderNum.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtOrderNum.Modified = false;
@@ -587,7 +587,7 @@
             this.txtOrderNum.SelectionLength = 0;
             this.txtOrderNum.SelectionStart = 0;
             this.txtOrderNum.ShortcutsEnabled = true;
-            this.txtOrderNum.Size = new System.Drawing.Size(145, 39);
+            this.txtOrderNum.Size = new System.Drawing.Size(170, 39);
             this.txtOrderNum.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Material;
             this.txtOrderNum.TabIndex = 4;
             this.txtOrderNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -667,9 +667,9 @@
             this.cmbCategory.Items.AddRange(new object[] {
             "Food",
             "Beverage"});
-            this.cmbCategory.Location = new System.Drawing.Point(43, 72);
+            this.cmbCategory.Location = new System.Drawing.Point(12, 72);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(157, 32);
+            this.cmbCategory.Size = new System.Drawing.Size(182, 32);
             this.cmbCategory.TabIndex = 2;
             // 
             // lblPlacOrder
@@ -878,6 +878,7 @@
             this.btnUsers.TextMarginLeft = 0;
             this.btnUsers.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnUsers.UseDefaultRadiusAndThickness = true;
+            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
             // 
             // btnItems
             // 

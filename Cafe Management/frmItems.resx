@@ -157,9 +157,9 @@
   </data>
   <data name="txtItemPrice.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAJEAAAAnCAYAAAAPS6pLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA3SURBVHhe7cMxEQAwCASw+jfFOwM0dGJI7vIAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAC4KEnt1r/pAc+N1n8sddHOAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAALQAAAAnCAYAAACmP2LfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA8SURBVHhe7cPBCQAwCASw7r+Ut5m6Qp9CAnkAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAPAvSe3W+9MDd1VIK88UUMAAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="btnAdd.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -172,16 +172,16 @@
   </data>
   <data name="txtItemName.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAJEAAAAnCAYAAAAPS6pLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA3SURBVHhe7cMxEQAwCASw+jfFOwM0dGJI7vIAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAC4KEnt1r/pAc+N1n8sddHOAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAALQAAAAnCAYAAACmP2LfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA8SURBVHhe7cPBCQAwCASw7r+Ut5m6Qp9CAnkAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAPAvSe3W+9MDd1VIK88UUMAAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="txtItemNum.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAJEAAAAnCAYAAAAPS6pLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA3SURBVHhe7cMxEQAwCASw+jfFOwM0dGJI7vIAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAC4KEnt1r/pAc+N1n8sddHOAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAALQAAAAnCAYAAACmP2LfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA8SURBVHhe7cPBCQAwCASw7r+Ut5m6Qp9CAnkAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAPAvSe3W+9MDd1VIK88UUMAAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="lblMngItems.BaseStylesheet" xml:space="preserve">

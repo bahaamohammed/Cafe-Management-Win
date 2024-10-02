@@ -10,15 +10,11 @@ using System.Windows.Forms;
 
 namespace Cafe_Management
 {
-    public partial class frmItems : Form
+    public partial class frmUsers : Form
     {
-        public frmItems()
+        public frmUsers()
         {
             InitializeComponent();
-        }
-        private void lnkLogout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.Close();
         }
 
         private void btnOrder_Click(object sender, EventArgs e)
@@ -31,6 +27,7 @@ namespace Cafe_Management
 
             // After the main form is closed (on logout), show the login form again
             this.Show();
+
         }
 
         private void btnUsers_Click(object sender, EventArgs e)
@@ -43,6 +40,11 @@ namespace Cafe_Management
 
             // After the main form is closed (on logout), show the login form again
             this.Show();
+        }
+
+        private void lnkLogout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
