@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace Cafe_Management
 {
@@ -40,6 +41,39 @@ namespace Cafe_Management
             // After the main form is closed (on logout), show the login form again
             this.Show();
 
+        }
+        private void connectDB()
+        {
+            // Connection string to connect to the Access database
+            string connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=E:\\moh_for_emerg.accdb;Persist Security Info=False;";
+
+            // Create a connection to the database
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                try
+                {
+                    // Open the connection
+                    connection.Open();
+                    MessageBox.Show("Connection to the database was successful!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+                finally
+                {
+                    // Always close the connection when done
+                    if (connection.State == ConnectionState.Open)
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            connectDB();
         }
     }
 }
