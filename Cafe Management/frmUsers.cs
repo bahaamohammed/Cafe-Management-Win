@@ -66,24 +66,26 @@ namespace Cafe_Management
 
         private void addUser(string username, string password, string phone)
         {
-            string insertQuery = "INSERT INTO users (username, phone, password) VALUES (@Username, @Phone, @Password)";
+            string insertQuery = "INSERT INTO users (username, phone, [password]) VALUES (@Username, @Phone, @Password)";
             OleDbParameter[] parameters = {
                 new OleDbParameter("@Username", username),
                 new OleDbParameter("@Phone", phone),
                 new OleDbParameter("@Password", password)
             };
 
-            string result = dbManager.ExecuteNonQuery(insertQuery, parameters);
-            MessageBox.Show(result);
+            int result = dbManager.ExecuteNonQuery(insertQuery, parameters);
 
-            //if (result > 0)
-            //{
-            //    MessageBox.Show("User inserted successfully.");
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Insert failed.");
-            //}
+            if (result > 0)
+            {
+                txtPassword.Clear();
+                txtPhone.Clear();
+                txtUsername.Clear();
+                MessageBox.Show("User inserted successfully.");
+            }
+            else
+            {
+                MessageBox.Show("Insert failed.");
+            }
         }
     }
 }

@@ -31,7 +31,7 @@ public class DatabaseManager
     }
 
     // Execute Insert, Update, Delete commands
-    public string ExecuteNonQuery(string query, OleDbParameter[] parameters = null)
+    public int ExecuteNonQuery(string query, OleDbParameter[] parameters = null)
     {
         try
         {
@@ -42,14 +42,13 @@ public class DatabaseManager
                 {
                     cmd.Parameters.AddRange(parameters);
                 }
-                return cmd.ExecuteNonQuery().ToString(); // Returns number of rows affected
+                return cmd.ExecuteNonQuery(); // Returns number of rows affected
             }
         }
         catch (Exception ex)
         {
-            //Console.WriteLine("Error: " + ex.Message);
-            //return -1;
-            return ex.Message;
+            Console.WriteLine("Error: " + ex.Message);
+            return -1;
         }
         finally
         {
