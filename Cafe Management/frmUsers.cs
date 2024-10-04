@@ -60,7 +60,7 @@ namespace Cafe_Management
             }
             else
             {
-                MessageBox.Show("Please Check Your Entries");
+                MessageBox.Show("Please Check Your Entries", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -80,11 +80,11 @@ namespace Cafe_Management
                 txtPassword.Clear();
                 txtPhone.Clear();
                 txtUsername.Clear();
-                MessageBox.Show("User inserted successfully.");
+                MessageBox.Show("User inserted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Insert failed.");
+                MessageBox.Show("Insert failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
