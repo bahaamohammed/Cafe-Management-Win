@@ -80,11 +80,39 @@ namespace Cafe_Management
                 txtPassword.Clear();
                 txtPhone.Clear();
                 txtUsername.Clear();
+                LoadUsers();
                 MessageBox.Show("User inserted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 MessageBox.Show("Insert failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void frmUsers_Load(object sender, EventArgs e)
+        {
+            LoadUsers();
+        }
+        private void LoadUsers()
+        {
+            dgvUsers.DataSource = null;
+            string query = "SELECT username, phone, [password] FROM users"; // Adjust column names as needed
+            DataTable dataTable = dbManager.ExecuteQuery(query); // Assuming ExecuteQuery returns a DataTable
+
+            if (dataTable != null)
+            {
+                dgvUsers.DataSource = dataTable; // Set the DataGridView's DataSource
+            }
+        }
+
+        private void dgvUsers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) // Ensure a valid row index is selected
+            {
+                DataGridViewRow row = dgvUsers.Rows[e.RowIndex];
+                txtUsername.Text = row.Cells["username"].Value.ToString();
+                txtPhone.Text = row.Cells["phone"].Value.ToString();
+                txtPassword.Text = row.Cells["password"].Value.ToString(); // Make sure to handle passwords securely
             }
         }
     }
