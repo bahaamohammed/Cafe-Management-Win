@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,7 @@ namespace Cafe_Management
             InitializeComponent();
         }
 
+        DatabaseManager dbManager = new DatabaseManager();
         private void btnOrder_Click(object sender, EventArgs e)
         {
             frmUserOrder frmUserOrder = new frmUserOrder();
@@ -45,6 +47,43 @@ namespace Cafe_Management
         private void lnkLogout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Close();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            string username = txtUsername.Text.Trim();
+            string password = txtPassword.Text.Trim();
+            string phone = txtPhone.Text.Trim();
+            if (username.Length > 0 && password.Length > 0 && phone.Length > 0)
+            {
+                addUser(username, password, phone);
+            }
+            else
+            {
+                MessageBox.Show("Please Check Your Entries");
+            }
+        }
+
+        private void addUser(string username, string password, string phone)
+        {
+            string insertQuery = "INSERT INTO users (username, phone, password) VALUES (@Username, @Phone, @Password)";
+            OleDbParameter[] parameters = {
+                new OleDbParameter("@Username", username),
+                new OleDbParameter("@Phone", phone),
+                new OleDbParameter("@Password", password)
+            };
+
+            string result = dbManager.ExecuteNonQuery(insertQuery, parameters);
+            MessageBox.Show(result);
+
+            //if (result > 0)
+            //{
+            //    MessageBox.Show("User inserted successfully.");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Insert failed.");
+            //}
         }
     }
 }

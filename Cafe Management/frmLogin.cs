@@ -17,7 +17,7 @@ namespace Cafe_Management
         {
             InitializeComponent();
         }
-
+        DatabaseManager dbManager = new DatabaseManager();
         private void lnkGuest_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmUserOrder frmUserOrder = new frmUserOrder(true);
@@ -32,48 +32,49 @@ namespace Cafe_Management
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            frmUserOrder frmUserOrder = new frmUserOrder();
-            frmUserOrder.ShowDialog(); // Show the main form as a dialog
+            // Get the entered username and password
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
 
-            // Hide the login form and open the main form
-            this.Hide();
-
-            // After the main form is closed (on logout), show the login form again
-            this.Show();
-
-        }
-        private void connectDB()
-        {
-            // Connection string to connect to the Access database
-            string connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=E:\\moh_for_emerg.accdb;Persist Security Info=False;";
-
-            // Create a connection to the database
-            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            // Call the login method
+            if (Login(username, password))
             {
-                try
-                {
-                    // Open the connection
-                    connection.Open();
-                    MessageBox.Show("Connection to the database was successful!");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-                finally
-                {
-                    // Always close the connection when done
-                    if (connection.State == ConnectionState.Open)
-                    {
-                        connection.Close();
-                    }
-                }
-            }
-        }
+                frmUserOrder frmUserOrder = new frmUserOrder();
+                frmUserOrder.ShowDialog(); // Show the main form as a dialog
 
-        private void frmLogin_Load(object sender, EventArgs e)
+                // Hide the login form and open the main form
+                this.Hide();
+
+                // After the main form is closed (on logout), show the login form again
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Invalid username or password.");
+            }
+
+          
+
+        }
+        // Method to handle login validation
+        private bool Login(string username, string password)
         {
-            connectDB();
+            // SQL Query to check for matching username and password
+            string query = "SELECT COUNT(*) FROM Users WHERE Username = @Username AND Password = @Password";
+            OleDbParameter[] parameters = {
+                new OleDbParameter("@Username", username),
+                new OleDbParameter("@Password", password)
+            };
+
+            // Execute the query and check if any record is found
+            DataTable result = dbManager.ExecuteQuery(query, parameters);
+
+            // Check if the login was successful (if at least 1 row is returned)
+            if (result.Rows.Count > 0 && Convert.ToInt32(result.Rows[0][0]) > 0)
+            {
+                return true; // Login successful
+            }
+            return false; // Login failed
         }
     }
 }
