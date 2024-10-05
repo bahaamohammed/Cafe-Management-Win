@@ -13,39 +13,59 @@ namespace Cafe_Management
 {
     public partial class frmUsers : Form
     {
-        public frmUsers()
+        private Form previousForm;  // Declare a general Form reference
+        public frmUsers(Form previousForm = null)
         {
             InitializeComponent();
+            this.previousForm = previousForm;
         }
 
         DatabaseManager dbManager = new DatabaseManager();
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            frmUserOrder frmUserOrder = new frmUserOrder();
-            frmUserOrder.ShowDialog(); // Show the main form as a dialog
+            if (previousForm is frmUserOrder)
+            {
+                previousForm.Show();
+                this.Hide();
+            }
+            else if (previousForm != null)
+            {
+                previousForm.Close();
+                frmUserOrder frmUserOrder = new frmUserOrder(false,this);
+                frmUserOrder.Show(); // Show the main form as a dialog
 
-            // Hide the login form and open the main form
-            this.Hide();
-
-            // After the main form is closed (on logout), show the login form again
-            this.Show();
+                // Hide the login form and open the main form
+                this.Hide();
+            }
+            
 
         }
 
         private void btnUsers_Click(object sender, EventArgs e)
         {
-            frmUsers frmUsers = new frmUsers();
-            frmUsers.ShowDialog(); // Show the main form as a dialog
+            if (previousForm is frmUsers)
+            {
+                previousForm.Show();
+                this.Hide();
+            }
+            else if (previousForm != null)
+            {
+                previousForm.Close();
+                frmUsers frmUsers = new frmUsers(this);
+                frmUsers.Show(); // Show the main form as a dialog
 
-            // Hide the login form and open the main form
-            this.Hide();
-
-            // After the main form is closed (on logout), show the login form again
-            this.Show();
+                // Hide the login form and open the main form
+                this.Hide();
+            }
+            
         }
 
         private void lnkLogout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            if (previousForm != null)
+            {
+                previousForm.Close();
+            }
             this.Close();
         }
 
