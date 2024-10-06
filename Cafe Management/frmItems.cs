@@ -12,58 +12,38 @@ namespace Cafe_Management
 {
     public partial class frmItems : Form
     {
-        private Form previousForm;  // Declare a general Form reference
-        public frmItems(Form previousForm = null)
+        public frmItems()
         {
             InitializeComponent();
-            this.previousForm = previousForm;
         }
         private void lnkLogout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (previousForm != null)
-            {
-                previousForm.Close();
-            }
-            this.Close();
+            frmLogin frmLogin = new frmLogin();
+            frmLogin.Show();
+            this.Hide();
         }
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            if (previousForm is frmUserOrder)
-            {
-                previousForm.Show();
-                this.Hide();
-            }
-            else if (previousForm != null)
-            {
-                previousForm.Close();
-                frmUserOrder frmUserOrder = new frmUserOrder(false, this);
-                frmUserOrder.Show(); // Show the main form as a dialog
+            frmUserOrder frmUserOrder = new frmUserOrder(false);
+            frmUserOrder.Show(); // Show the main form as a dialog
 
-                // Hide the login form and open the main form
-                this.Hide();
-            }
-            
+            // Hide the login form and open the main form
+            this.Hide();
         }
 
         private void btnUsers_Click(object sender, EventArgs e)
         {
-            if (previousForm is frmUsers)
-            {
-                previousForm.Show();
-                this.Hide();
-            }
-            else if (previousForm != null)
-            {
-                previousForm.Close();
-                frmUsers frmUsers = new frmUsers(this);
-                frmUsers.ShowDialog(); // Show the main form as a dialog
+            frmUsers frmUsers = new frmUsers();
+            frmUsers.Show(); // Show the main form as a dialog
 
-                // Hide the login form and open the main form
-                this.Hide();
-            }
-           
+            // Hide the login form and open the main form
+            this.Hide();
         }
 
+        private void frmItems_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

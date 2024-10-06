@@ -20,7 +20,7 @@ namespace Cafe_Management
         DatabaseManager dbManager = new DatabaseManager();
         private void lnkGuest_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmUserOrder frmUserOrder = new frmUserOrder(true, this);
+            frmUserOrder frmUserOrder = new frmUserOrder(true);
             frmUserOrder.Show(); // Show the main form as a dialog
 
             // Hide the login form and open the main form
@@ -36,7 +36,7 @@ namespace Cafe_Management
             // Call the login method
             if (Login(username, password))
             {
-                frmUserOrder frmUserOrder = new frmUserOrder(false,this);
+                frmUserOrder frmUserOrder = new frmUserOrder(false);
                 frmUserOrder.Show(); // Show the main form as a dialog
 
                 // Hide the login form and open the main form
@@ -70,6 +70,11 @@ namespace Cafe_Management
                 return true; // Login successful
             }
             return false; // Login failed
+        }
+
+        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

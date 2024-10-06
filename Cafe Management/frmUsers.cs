@@ -13,60 +13,28 @@ namespace Cafe_Management
 {
     public partial class frmUsers : Form
     {
-        private Form previousForm;  // Declare a general Form reference
-        public frmUsers(Form previousForm = null)
+        public frmUsers()
         {
             InitializeComponent();
-            this.previousForm = previousForm;
         }
 
         DatabaseManager dbManager = new DatabaseManager();
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            if (previousForm is frmUserOrder)
-            {
-                previousForm.Show();
-                this.Hide();
-            }
-            else if (previousForm != null)
-            {
-                previousForm.Close();
-                frmUserOrder frmUserOrder = new frmUserOrder(false,this);
-                frmUserOrder.Show(); // Show the main form as a dialog
+            frmUserOrder frmUserOrder = new frmUserOrder(false);
+            frmUserOrder.Show(); // Show the main form as a dialog
 
-                // Hide the login form and open the main form
-                this.Hide();
-            }
-            
-
+            // Hide the login form and open the main form
+            this.Hide();
         }
 
-        private void btnUsers_Click(object sender, EventArgs e)
-        {
-            if (previousForm is frmUsers)
-            {
-                previousForm.Show();
-                this.Hide();
-            }
-            else if (previousForm != null)
-            {
-                previousForm.Close();
-                frmUsers frmUsers = new frmUsers(this);
-                frmUsers.Show(); // Show the main form as a dialog
-
-                // Hide the login form and open the main form
-                this.Hide();
-            }
-            
-        }
+       
 
         private void lnkLogout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (previousForm != null)
-            {
-                previousForm.Close();
-            }
-            this.Close();
+            frmLogin frmLogin = new frmLogin();
+            frmLogin.Show();
+            this.Hide();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -134,6 +102,20 @@ namespace Cafe_Management
                 txtPhone.Text = row.Cells["phone"].Value.ToString();
                 txtPassword.Text = row.Cells["password"].Value.ToString(); // Make sure to handle passwords securely
             }
+        }
+
+        private void frmUsers_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnItems_Click(object sender, EventArgs e)
+        {
+            frmItems frmItems = new frmItems();
+            frmItems.Show(); // Show the main form as a dialog
+
+            // Hide the login form and open the main form
+            this.Hide();
         }
     }
 }
