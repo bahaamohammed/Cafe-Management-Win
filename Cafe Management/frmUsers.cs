@@ -92,8 +92,9 @@ namespace Cafe_Management
             if (dataTable != null)
             {
                 dgvUsers.DataSource = dataTable; // Set the DataGridView's DataSource
+                dgvUsers.Columns["id"].Visible = false;
             }
-            dgvUsers.Columns["id"].Visible = false;
+           
         }
 
         private void dgvUsers_CellClick(object sender, DataGridViewCellEventArgs e)
