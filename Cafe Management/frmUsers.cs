@@ -125,12 +125,12 @@ namespace Cafe_Management
 
         private void deleteUser()
         {
-            string insertQuery = "Delete from users where id = @UserId";
+            string deleteQuery = "Delete from users where id = @UserId";
             OleDbParameter[] parameters = {
                 new OleDbParameter("@UserId", userId)
             };
 
-            int result = dbManager.ExecuteNonQuery(insertQuery, parameters);
+            int result = dbManager.ExecuteNonQuery(deleteQuery, parameters);
 
             if (result > 0)
             {
@@ -165,9 +165,51 @@ namespace Cafe_Management
             }
         }
 
+        private void updateUser()
+        {
+            string updateQuery = "UPDATE users SET username = @Username, phone = @Phone, [password] = @Password WHERE id = @UserId";
+            OleDbParameter[] parameters = {
+                new OleDbParameter("@Username", txtUsername.Text.Trim()),
+                new OleDbParameter("@Phone", txtPhone.Text.Trim()),
+                new OleDbParameter("@Password", txtPassword.Text.Trim()),
+                new OleDbParameter("@UserId", userId),
+            };
+
+            int result = dbManager.ExecuteNonQuery(updateQuery, parameters);
+
+            if (result > 0)
+            {
+                txtPassword.Clear();
+                txtPhone.Clear();
+                txtUsername.Clear();
+                LoadUsers();
+                MessageBox.Show("User updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Updated failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void btnEdit_Click(object sender, EventArgs e)
         {
-
+            if (userId > 0)
+            {
+                if (userName == DatabaseManager.currentUsername)
+                {
+                    updateUser();
+                    MessageBox.Show("The application will restart now.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Application.Restart();
+                }
+                else
+                {
+                    updateUser();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select the user you need to update it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

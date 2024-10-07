@@ -399,7 +399,7 @@
             this.btnEdit.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
             this.btnEdit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEdit.BackgroundImage")));
             this.btnEdit.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnEdit.ButtonText = "Edit";
+            this.btnEdit.ButtonText = "Update";
             this.btnEdit.ButtonTextMarginLeft = 0;
             this.btnEdit.ColorContrastOnClick = 45;
             this.btnEdit.ColorContrastOnHover = 45;
