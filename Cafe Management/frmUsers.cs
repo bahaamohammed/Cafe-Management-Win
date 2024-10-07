@@ -17,6 +17,8 @@ namespace Cafe_Management
         {
             InitializeComponent();
         }
+        int userId = 0;
+        string userName = "";
 
         DatabaseManager dbManager = new DatabaseManager();
         private void btnOrder_Click(object sender, EventArgs e)
@@ -84,13 +86,14 @@ namespace Cafe_Management
         private void LoadUsers()
         {
             dgvUsers.DataSource = null;
-            string query = "SELECT username, phone, [password] FROM users"; // Adjust column names as needed
+            string query = "SELECT id, username, phone, [password] FROM users"; // Adjust column names as needed
             DataTable dataTable = dbManager.ExecuteQuery(query); // Assuming ExecuteQuery returns a DataTable
 
             if (dataTable != null)
             {
                 dgvUsers.DataSource = dataTable; // Set the DataGridView's DataSource
             }
+            dgvUsers.Columns["id"].Visible = false;
         }
 
         private void dgvUsers_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -98,7 +101,9 @@ namespace Cafe_Management
             if (e.RowIndex >= 0) // Ensure a valid row index is selected
             {
                 DataGridViewRow row = dgvUsers.Rows[e.RowIndex];
+                userId = int.Parse(row.Cells["id"].Value.ToString());
                 txtUsername.Text = row.Cells["username"].Value.ToString();
+                userName = txtUsername.Text;
                 txtPhone.Text = row.Cells["phone"].Value.ToString();
                 txtPassword.Text = row.Cells["password"].Value.ToString(); // Make sure to handle passwords securely
             }
@@ -116,6 +121,53 @@ namespace Cafe_Management
 
             // Hide the login form and open the main form
             this.Hide();
+        }
+
+        private void deleteUser()
+        {
+            string insertQuery = "Delete from users where id = @UserId";
+            OleDbParameter[] parameters = {
+                new OleDbParameter("@UserId", userId)
+            };
+
+            int result = dbManager.ExecuteNonQuery(insertQuery, parameters);
+
+            if (result > 0)
+            {
+                txtPassword.Clear();
+                txtPhone.Clear();
+                txtUsername.Clear();
+                LoadUsers();
+                MessageBox.Show("User deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Deleted failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (userId > 0)
+            {
+                if (userName == DatabaseManager.currentUsername)
+                {
+                    MessageBox.Show("You cannot delete your user.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    deleteUser();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select the user you need to delete it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

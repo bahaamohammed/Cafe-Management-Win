@@ -38,6 +38,7 @@ namespace Cafe_Management
             {
                 frmUserOrder frmUserOrder = new frmUserOrder(false);
                 frmUserOrder.Show(); // Show the main form as a dialog
+                DatabaseManager.currentUsername = username;
 
                 // Hide the login form and open the main form
                 this.Hide();

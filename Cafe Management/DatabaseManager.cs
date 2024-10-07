@@ -6,6 +6,7 @@ public class DatabaseManager
 {
     private OleDbConnection connection;
     private string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=dbCafeMng.accdb;Persist Security Info=False;";
+    public static string currentUsername = "";
 
     public DatabaseManager()
     {

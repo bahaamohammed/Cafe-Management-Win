@@ -383,6 +383,7 @@
             this.btnDelete.TextMarginLeft = 0;
             this.btnDelete.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnDelete.UseDefaultRadiusAndThickness = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
@@ -474,6 +475,7 @@
             this.btnEdit.TextMarginLeft = 0;
             this.btnEdit.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnEdit.UseDefaultRadiusAndThickness = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // txtPassword
             // 
