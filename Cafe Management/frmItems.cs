@@ -16,6 +16,7 @@ namespace Cafe_Management
         {
             InitializeComponent();
         }
+        DatabaseManager dbManager = new DatabaseManager();
         private void lnkLogout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmLogin frmLogin = new frmLogin();
@@ -44,6 +45,23 @@ namespace Cafe_Management
         private void frmItems_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void frmItems_Load(object sender, EventArgs e)
+        {
+            LoadItems();
+        }
+        private void LoadItems()
+        {
+            dgvItems.DataSource = null;
+            string query = "SELECT id, name, cate, price FROM items"; // Adjust column names as needed
+            DataTable dataTable = dbManager.ExecuteQuery(query); // Assuming ExecuteQuery returns a DataTable
+
+            if (dataTable != null)
+            {
+                dgvItems.DataSource = dataTable; // Set the DataGridView's DataSource
+            }
+            dgvItems.Columns["id"].Visible = false;
         }
     }
 }
