@@ -93,6 +93,9 @@ namespace Cafe_Management
             {
                 dgvUsers.DataSource = dataTable; // Set the DataGridView's DataSource
                 dgvUsers.Columns["id"].Visible = false;
+                dgvUsers.Columns[1].HeaderText = "Username";
+                dgvUsers.Columns[2].HeaderText = "Phone";
+                dgvUsers.Columns[3].HeaderText = "Password";
             }
            
         }

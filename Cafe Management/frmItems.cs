@@ -18,6 +18,7 @@ namespace Cafe_Management
             InitializeComponent();
         }
         DatabaseManager dbManager = new DatabaseManager();
+        int itemId = 0;
         private void lnkLogout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmLogin frmLogin = new frmLogin();
@@ -64,6 +65,9 @@ namespace Cafe_Management
                 if (dgvItems.Columns.Count > 0)
                 {
                     dgvItems.Columns["id"].Visible = false;
+                    dgvItems.Columns[1].HeaderText = "Name";
+                    dgvItems.Columns[2].HeaderText = "Category";
+                    dgvItems.Columns[3].HeaderText = "Price";
                 }
             }
         }
@@ -104,6 +108,32 @@ namespace Cafe_Management
             else
             {
                 MessageBox.Show("Insert failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvItems_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) // Ensure a valid row index is selected
+            {
+                DataGridViewRow row = dgvItems.Rows[e.RowIndex];
+                itemId = int.Parse(row.Cells["id"].Value.ToString());
+                txtItemName.Text = row.Cells["name"].Value.ToString();
+                int index = cmbCategory.FindStringExact(row.Cells["cat"].Value.ToString());
+                if (index != -1) // If the item is found
+                {
+                    cmbCategory.SelectedIndex = index; // Select the item
+                }
+                txtItemPrice.Text = row.Cells["price"].Value.ToString();
             }
         }
     }
