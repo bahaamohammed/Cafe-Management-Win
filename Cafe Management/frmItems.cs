@@ -111,9 +111,42 @@ namespace Cafe_Management
             }
         }
 
+        private void updateItem()
+        {
+            string updateQuery = "UPDATE items SET name = @Name, cat = @Cat, price = @Price WHERE id = @ItemId";
+            OleDbParameter[] parameters = {
+                new OleDbParameter("@Name", txtItemName.Text.Trim()),
+                new OleDbParameter("@Cat", cmbCategory.Text.Trim()),
+                new OleDbParameter("@Price", txtItemPrice.Text.Trim()),
+                new OleDbParameter("@ItemId", itemId),
+            };
+
+            int result = dbManager.ExecuteNonQuery(updateQuery, parameters);
+
+            if (result > 0)
+            {
+                txtItemName.Clear();
+                cmbCategory.SelectedIndex = -1;
+                txtItemPrice.Clear();
+                LoadItems();
+                MessageBox.Show("Item updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Updated failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void btnEdit_Click(object sender, EventArgs e)
         {
-           
+            if (itemId > 0)
+            {
+                updateItem();
+            }
+            else
+            {
+                MessageBox.Show("Please select the item you need to update it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
