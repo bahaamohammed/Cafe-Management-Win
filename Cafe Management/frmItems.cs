@@ -149,9 +149,39 @@ namespace Cafe_Management
             }
         }
 
+        private void deleteItem()
+        {
+            string deleteQuery = "Delete from items where id = @ItemId";
+            OleDbParameter[] parameters = {
+                new OleDbParameter("@ItemId", itemId)
+            };
+
+            int result = dbManager.ExecuteNonQuery(deleteQuery, parameters);
+
+            if (result > 0)
+            {
+                txtItemName.Clear();
+                cmbCategory.SelectedIndex = -1;
+                txtItemPrice.Clear();
+                LoadItems();
+                MessageBox.Show("Item deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Deleted failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
+            if (itemId > 0)
+            {
+                deleteItem();
+            }
+            else
+            {
+                MessageBox.Show("Please select the item you need to delete it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void dgvItems_CellClick(object sender, DataGridViewCellEventArgs e)
