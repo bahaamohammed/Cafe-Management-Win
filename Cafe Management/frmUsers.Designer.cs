@@ -800,6 +800,8 @@
             // dgvUsers
             // 
             this.dgvUsers.AllowCustomTheming = false;
+            this.dgvUsers.AllowUserToAddRows = false;
+            this.dgvUsers.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             this.dgvUsers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -850,6 +852,7 @@
             this.dgvUsers.HeaderForeColor = System.Drawing.Color.White;
             this.dgvUsers.Location = new System.Drawing.Point(272, 72);
             this.dgvUsers.Name = "dgvUsers";
+            this.dgvUsers.ReadOnly = true;
             this.dgvUsers.RowHeadersVisible = false;
             this.dgvUsers.RowTemplate.Height = 40;
             this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

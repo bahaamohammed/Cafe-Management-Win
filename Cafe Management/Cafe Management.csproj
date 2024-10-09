@@ -92,7 +92,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatabaseManager.cs" />
+    <Compile Include="DB\DatabaseManager.cs" />
+    <Compile Include="DB\UserManager.cs" />
     <Compile Include="frmItems.cs">
       <SubType>Form</SubType>
     </Compile>

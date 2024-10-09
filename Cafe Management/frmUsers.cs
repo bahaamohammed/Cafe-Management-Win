@@ -13,14 +13,15 @@ namespace Cafe_Management
 {
     public partial class frmUsers : Form
     {
+        UserManager userManager;
+        int userId = 0;
+        string userName = "";
         public frmUsers()
         {
             InitializeComponent();
+            userManager = new UserManager();
         }
-        int userId = 0;
-        string userName = "";
-
-        DatabaseManager dbManager = new DatabaseManager();
+        
         private void btnOrder_Click(object sender, EventArgs e)
         {
             frmUserOrder frmUserOrder = new frmUserOrder(false);
@@ -46,36 +47,20 @@ namespace Cafe_Management
             string phone = txtPhone.Text.Trim();
             if (username.Length > 0 && password.Length > 0 && phone.Length > 0)
             {
-                addUser(username, password, phone);
+                if (userManager.AddUser(username, password, phone))
+                {
+                    MessageBox.Show("User added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearForm();
+                    LoadUsers();
+                }
+                else
+                {
+                    MessageBox.Show("Insert failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Please Check Your Entries", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void addUser(string username, string password, string phone)
-        {
-            string insertQuery = "INSERT INTO users (username, phone, [password]) VALUES (@Username, @Phone, @Password)";
-            OleDbParameter[] parameters = {
-                new OleDbParameter("@Username", username),
-                new OleDbParameter("@Phone", phone),
-                new OleDbParameter("@Password", password)
-            };
-
-            int result = dbManager.ExecuteNonQuery(insertQuery, parameters);
-
-            if (result > 0)
-            {
-                txtPassword.Clear();
-                txtPhone.Clear();
-                txtUsername.Clear();
-                LoadUsers();
-                MessageBox.Show("User inserted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Insert failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please check your entries", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -83,33 +68,16 @@ namespace Cafe_Management
         {
             LoadUsers();
         }
-        private void LoadUsers()
-        {
-            dgvUsers.DataSource = null;
-            string query = "SELECT id, username, phone, [password] FROM users"; // Adjust column names as needed
-            DataTable dataTable = dbManager.ExecuteQuery(query); // Assuming ExecuteQuery returns a DataTable
-
-            if (dataTable != null)
-            {
-                dgvUsers.DataSource = dataTable; // Set the DataGridView's DataSource
-                dgvUsers.Columns["id"].Visible = false;
-                dgvUsers.Columns[1].HeaderText = "Username";
-                dgvUsers.Columns[2].HeaderText = "Phone";
-                dgvUsers.Columns[3].HeaderText = "Password";
-            }
-           
-        }
-
         private void dgvUsers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0) // Ensure a valid row index is selected
+            if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvUsers.Rows[e.RowIndex];
                 userId = int.Parse(row.Cells["id"].Value.ToString());
                 txtUsername.Text = row.Cells["username"].Value.ToString();
                 userName = txtUsername.Text;
                 txtPhone.Text = row.Cells["phone"].Value.ToString();
-                txtPassword.Text = row.Cells["password"].Value.ToString(); // Make sure to handle passwords securely
+                txtPassword.Text = row.Cells["password"].Value.ToString();
             }
         }
 
@@ -127,71 +95,24 @@ namespace Cafe_Management
             this.Hide();
         }
 
-        private void deleteUser()
-        {
-            string deleteQuery = "Delete from users where id = @UserId";
-            OleDbParameter[] parameters = {
-                new OleDbParameter("@UserId", userId)
-            };
-
-            int result = dbManager.ExecuteNonQuery(deleteQuery, parameters);
-
-            if (result > 0)
-            {
-                txtPassword.Clear();
-                txtPhone.Clear();
-                txtUsername.Clear();
-                LoadUsers();
-                MessageBox.Show("User deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Deleted failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (userId > 0)
             {
-                if (userName == DatabaseManager.currentUsername)
+                if (userManager.DeleteUser(userId))
                 {
-                    MessageBox.Show("You cannot delete your user.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("User deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearForm();
+                    LoadUsers();
                 }
                 else
                 {
-                    deleteUser();
+                    MessageBox.Show("Delete failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Please select the user you need to delete it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void updateUser()
-        {
-            string updateQuery = "UPDATE users SET username = @Username, phone = @Phone, [password] = @Password WHERE id = @UserId";
-            OleDbParameter[] parameters = {
-                new OleDbParameter("@Username", txtUsername.Text.Trim()),
-                new OleDbParameter("@Phone", txtPhone.Text.Trim()),
-                new OleDbParameter("@Password", txtPassword.Text.Trim()),
-                new OleDbParameter("@UserId", userId),
-            };
-
-            int result = dbManager.ExecuteNonQuery(updateQuery, parameters);
-
-            if (result > 0)
-            {
-                txtPassword.Clear();
-                txtPhone.Clear();
-                txtUsername.Clear();
-                LoadUsers();
-                MessageBox.Show("User updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Updated failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select a user to delete", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -199,21 +120,38 @@ namespace Cafe_Management
         {
             if (userId > 0)
             {
-                if (userName == DatabaseManager.currentUsername)
+                if (userManager.UpdateUser(userId, txtUsername.Text.Trim(), txtPassword.Text.Trim(), txtPhone.Text.Trim()))
                 {
-                    updateUser();
-                    MessageBox.Show("The application will restart now.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Application.Restart();
+                    MessageBox.Show("User updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearForm();
+                    LoadUsers();
                 }
                 else
                 {
-                    updateUser();
+                    MessageBox.Show("Update failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Please select the user you need to update it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select a user to update", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void LoadUsers()
+        {
+            dgvUsers.DataSource = userManager.LoadUsers();
+            dgvUsers.Columns["id"].Visible = false;
+            dgvUsers.Columns[1].HeaderText = "Username";
+            dgvUsers.Columns[2].HeaderText = "Phone";
+            dgvUsers.Columns[3].HeaderText = "Password";
+        }
+        private void ClearForm()
+        {
+            txtUsername.Clear();
+            txtPassword.Clear();
+            txtPhone.Clear();
+            userId = 0;
+            userName = "";
         }
     }
 }
