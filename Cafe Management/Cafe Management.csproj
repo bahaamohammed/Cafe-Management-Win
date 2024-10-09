@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DB\DatabaseManager.cs" />
+    <Compile Include="DB\ItemManager.cs" />
     <Compile Include="DB\UserManager.cs" />
     <Compile Include="frmItems.cs">
       <SubType>Form</SubType>

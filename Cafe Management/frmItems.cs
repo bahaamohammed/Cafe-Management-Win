@@ -13,12 +13,14 @@ namespace Cafe_Management
 {
     public partial class frmItems : Form
     {
+        ItemManager itemManager;
+        int itemId = 0;
         public frmItems()
         {
             InitializeComponent();
+            itemManager = new ItemManager();
         }
-        DatabaseManager dbManager = new DatabaseManager();
-        int itemId = 0;
+        
         private void lnkLogout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmLogin frmLogin = new frmLogin();
@@ -53,25 +55,6 @@ namespace Cafe_Management
         {
             LoadItems();
         }
-        private void LoadItems()
-        {
-            dgvItems.DataSource = null;
-            string query = "SELECT id, name, cat, price FROM items"; // Adjust column names as needed
-            DataTable dataTable = dbManager.ExecuteQuery(query); // Assuming ExecuteQuery returns a DataTable
-
-            if (dataTable != null)
-            {
-                dgvItems.DataSource = dataTable; // Set the DataGridView's DataSource
-                if (dgvItems.Columns.Count > 0)
-                {
-                    dgvItems.Columns["id"].Visible = false;
-                    dgvItems.Columns[1].HeaderText = "Name";
-                    dgvItems.Columns[2].HeaderText = "Category";
-                    dgvItems.Columns[3].HeaderText = "Price";
-                }
-            }
-        }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
             string itemName = txtItemName.Text.Trim();
@@ -79,7 +62,16 @@ namespace Cafe_Management
             string itemCat = cmbCategory.Text.Trim();
             if (itemName.Length > 0 && itemPrice > 0 && itemCat.Length > 0)
             {
-                addItem(itemName, itemCat, itemPrice);
+                if (itemManager.addItem(itemName, itemCat, itemPrice))
+                {
+                    MessageBox.Show("Item added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearForm();
+                    LoadItems();
+                }
+                else
+                {
+                    MessageBox.Show("Insert failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
@@ -87,88 +79,24 @@ namespace Cafe_Management
             }
         }
 
-        private void addItem(string itemName, string itemCat, int itemPrice)
-        {
-            string insertQuery = "INSERT INTO items (name, cat, price) VALUES (@ItemName, @ItemCat, @ItemPrice)";
-            OleDbParameter[] parameters = {
-                new OleDbParameter("@ItemName", itemName),
-                new OleDbParameter("@ItemCat", itemCat),
-                new OleDbParameter("@ItemPrice", itemPrice)
-            };
-
-            int result = dbManager.ExecuteNonQuery(insertQuery, parameters);
-
-            if (result > 0)
-            {
-                txtItemName.Clear();
-                txtItemPrice.Clear();
-                cmbCategory.SelectedIndex = -1;
-                MessageBox.Show("Item inserted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Insert failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void updateItem()
-        {
-            string updateQuery = "UPDATE items SET name = @Name, cat = @Cat, price = @Price WHERE id = @ItemId";
-            OleDbParameter[] parameters = {
-                new OleDbParameter("@Name", txtItemName.Text.Trim()),
-                new OleDbParameter("@Cat", cmbCategory.Text.Trim()),
-                new OleDbParameter("@Price", txtItemPrice.Text.Trim()),
-                new OleDbParameter("@ItemId", itemId),
-            };
-
-            int result = dbManager.ExecuteNonQuery(updateQuery, parameters);
-
-            if (result > 0)
-            {
-                txtItemName.Clear();
-                cmbCategory.SelectedIndex = -1;
-                txtItemPrice.Clear();
-                LoadItems();
-                MessageBox.Show("Item updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Updated failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if (itemId > 0)
             {
-                updateItem();
+                if (itemManager.updateItem(itemId, txtItemName.Text.Trim(), cmbCategory.Text.Trim(), txtItemPrice.Text.Trim()))
+                {
+                    MessageBox.Show("Item updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearForm();
+                    LoadItems();
+                }
+                else
+                {
+                    MessageBox.Show("Update failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Please select the item you need to update it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void deleteItem()
-        {
-            string deleteQuery = "Delete from items where id = @ItemId";
-            OleDbParameter[] parameters = {
-                new OleDbParameter("@ItemId", itemId)
-            };
-
-            int result = dbManager.ExecuteNonQuery(deleteQuery, parameters);
-
-            if (result > 0)
-            {
-                txtItemName.Clear();
-                cmbCategory.SelectedIndex = -1;
-                txtItemPrice.Clear();
-                LoadItems();
-                MessageBox.Show("Item deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Deleted failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select a item to update", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -176,11 +104,20 @@ namespace Cafe_Management
         {
             if (itemId > 0)
             {
-                deleteItem();
+                if (itemManager.deleteItem(itemId))
+                {
+                    MessageBox.Show("Item deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearForm();
+                    LoadItems();
+                }
+                else
+                {
+                    MessageBox.Show("Delete failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Please select the item you need to delete it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select a item to delete", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -198,6 +135,21 @@ namespace Cafe_Management
                 }
                 txtItemPrice.Text = row.Cells["price"].Value.ToString();
             }
+        }
+        private void LoadItems()
+        {
+            dgvItems.DataSource = itemManager.LoadItems();
+            dgvItems.Columns["id"].Visible = false;
+            dgvItems.Columns[1].HeaderText = "Name";
+            dgvItems.Columns[2].HeaderText = "Category";
+            dgvItems.Columns[3].HeaderText = "Price";
+        }
+        private void ClearForm()
+        {
+            txtItemName.Clear();
+            txtItemPrice.Clear();
+            cmbCategory.SelectedIndex = -1;
+            itemId = 0;
         }
     }
 }
