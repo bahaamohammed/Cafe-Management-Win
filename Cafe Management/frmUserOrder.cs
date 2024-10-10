@@ -14,9 +14,10 @@ namespace Cafe_Management
     {
         bool isGuest = false;
         ItemManager itemManager;
-        int _price, qty, _total;
+        int _price, _total;
         int num = 0;
         int flag = 0;
+        int sum = 0;
         string _name, _cat;
         DataTable dt = new DataTable();
         public frmUserOrder(bool isGuest = false)
@@ -79,7 +80,10 @@ namespace Cafe_Management
                 dt.Rows.Add(num, _name, _cat, _price, _total);
                 dgvOrders.DataSource = dt;
                 flag = 0;
+                sum += _total;
+                lblOrdAmount.Text = sum + "$";
             }
+            
         }
 
         private void dgvItems_CellClick(object sender, DataGridViewCellEventArgs e)
